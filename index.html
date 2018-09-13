@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>my-vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{title}}</h2>
+        <input v-model="title">
+        <h1>{{tip}}</h1>
+        <button v-on:click='clickMe'>click me!</button>
+    </div>
+
+</body>
+<script src="js/observer.js"></script>
+<script src="js/watcher.js"></script>
+<script src="js/compile.js"></script>
+<script src="js/index.js"></script>
+<script>
+    var selfVue = new SelfVue({
+        el: '#app',
+        data: {
+            title: 'hello world!',
+            tip: '西北无声',
+        },
+        methods: {
+            clickMe: function() {
+                this.title = '西北无声出品';
+            }
+        },
+        mounted: function() {
+            window.setTimeout(() => {
+                this.tip = '3'
+            }, 500);
+            window.setTimeout(() => {
+                this.tip = '2'
+            }, 1000);
+            window.setTimeout(() => {
+                this.tip = '1'
+            }, 1500);
+            window.setTimeout(() => {
+                this.tip = '爱就像'
+            }, 2000);
+            window.setTimeout(() => {
+                this.tip = '蓝天白云'
+            }, 2500);
+            window.setTimeout(() => {
+                this.tip = '晴空万里'
+            }, 3000);
+            window.setTimeout(() => {
+                this.tip = '突然暴风雨'
+            }, 3500);
+        }
+    })
+    console.log('selfVue', selfVue);
+</script>
+
+</html>
